@@ -1,0 +1,12 @@
+.ui-button {
+    border-color: black;
+    border-radius: 2px;
+    background-color: #e8d5d5;
+    color: black;
+}
+.ui-button-bold {
+    font-weight: bold;
+}
+.ui-button:hover {
+    cursor: pointer;
+}

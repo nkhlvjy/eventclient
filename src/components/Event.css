@@ -1,0 +1,25 @@
+.event {
+    background-color: #cdcbd8;
+    color: #000000;
+    display: flex;
+}
+
+.event:hover {
+    background-color: rgb(157, 152, 183)
+}
+
+.event-category-initial {
+    font-size: xx-large;
+    padding: 1rem;
+}
+
+.event-detail {
+    border-left: solid 1px #000000;
+    display: grid;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.event-name {
+    font-weight: bold;
+}
