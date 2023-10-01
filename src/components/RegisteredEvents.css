@@ -1,3 +1,13 @@
 .registered-events-list {
     display: flex;
+    width: 43vw;
+    overflow: auto;
+    flex-wrap: wrap;
+}
+
+.registered-events-title {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    margin: 1rem
 }

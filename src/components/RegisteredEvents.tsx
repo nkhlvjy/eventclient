@@ -2,6 +2,8 @@ import React from "react";
 import Card from "./UI/Card";
 import { EventType } from "../types/EventTypes";
 import Event from "./Event";
+import './RegisteredEvents.css'
+
 
 export type RegisteredEventsPropsType = {
   events: EventType[];
@@ -28,6 +30,7 @@ const RegisteredEvents = (props: RegisteredEventsPropsType) => {
   });
   return (
     <Card>
+      <div className="registered-events-title">Registered Events</div>
       <div className="registered-events-list">{eventsUI}</div>
     </Card>
   );

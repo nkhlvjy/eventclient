@@ -2,6 +2,10 @@
     background-color: #cdcbd8;
     color: #000000;
     display: flex;
+    border: 2px #a29ebc solid;
+    border-radius: 6px;
+    margin: 2rem;
+    width: 16rem;
 }
 
 .event:hover {
