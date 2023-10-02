@@ -3,7 +3,7 @@ import "./Event.css";
 import Button from "./UI/Button";
 import { EventType } from "./../types/EventTypes";
 
-export type EventProps = {
+type EventProps = {
   event: EventType;
   isRegistered: boolean;
   onClickButton: () => void;

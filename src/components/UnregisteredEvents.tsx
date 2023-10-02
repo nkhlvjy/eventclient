@@ -4,7 +4,7 @@ import { EventType } from "../types/EventTypes";
 import Event from "./Event";
 import "./UnregisteredEvents.css";
 
-export type UnregisteredEventsPropsType = {
+type UnregisteredEventsPropsType = {
   events: EventType[];
   onClickButton: (id: number) => void;
 };

@@ -5,7 +5,7 @@ import Event from "./Event";
 import './RegisteredEvents.css'
 
 
-export type RegisteredEventsPropsType = {
+type RegisteredEventsPropsType = {
   events: EventType[];
   onClickButton: (id: number) => void;
 };

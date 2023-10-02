@@ -2,7 +2,7 @@ import React from "react";
 import './Button.css'
 
 
-export type ButtonProps = {
+type ButtonProps = {
     name: string;
     intent: boolean;
     onClick: () => void;
@@ -10,7 +10,7 @@ export type ButtonProps = {
 
 const Button = (props: ButtonProps) => {
     const buttonClassName = (() => {
-        if (props.intent) {
+        if (!props.intent) {
             return "ui-button ui-button-bold"
         } else {
             return "ui-button"

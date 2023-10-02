@@ -2,6 +2,7 @@
     display: flex;
     width: 43vw;
     overflow: auto;
+    height: 75vh;
     flex-wrap: wrap;
 }
 
@@ -9,5 +10,6 @@
     text-align: center;
     text-decoration: underline;
     font-weight: bold;
+    font-size: x-large;
     margin: 1rem
 }

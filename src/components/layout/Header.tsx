@@ -3,8 +3,9 @@ import "./Header.css"
 
 const Header = () => {
     return (
-        <>
-        </>
+        <div className="header">
+            Sports Day Events
+        </div>
     );
 }
 

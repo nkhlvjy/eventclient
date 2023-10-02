@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const ExpertsClient = axios.create({
-	baseURL: "http://localhost:8080",
+	baseURL: "http://localhost",
 });
 
 export type EventResponseType = {

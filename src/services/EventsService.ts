@@ -4,7 +4,7 @@ import {
   getAllEventsApi,
   getRegsiteredEventsByUserIdApi,
   registerEventByUserIdApi,
-} from "../http-clients/EventsSvcClient";
+} from "../api/EventsSvcClient";
 import { EventType } from "../types/EventTypes";
 import { RegistrationType } from "../types/RegistrationType";
 
