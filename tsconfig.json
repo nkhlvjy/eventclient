@@ -23,5 +23,5 @@
   "include": [
     "src",  
     "babel.config.js", "jest.config.js"  
-  ]
+, "__tests__/components/UI/Button.test.tsx"  ]
 }

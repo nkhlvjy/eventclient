@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import RegisteredEvents from "./RegisteredEvents";
-import { EventType } from "../types/EventTypes";
-import '@testing-library/jest-dom'
+import UnregisteredEvents from "../../src/components/UnregisteredEvents";
+import { EventType } from "../../src/types/EventTypes";
+import '@testing-library/jest-dom';
 
 const mockEvents: EventType[] = [
   {
@@ -21,17 +21,17 @@ const mockEvents: EventType[] = [
   },
 ];
 
-test("renders RegisteredEvents component with a title", () => {
+test("renders UnregisteredEvents component with a title", () => {
   const onClickButton = jest.fn();
-  render(<RegisteredEvents events={[]} onClickButton={onClickButton} />);
+  render(<UnregisteredEvents events={[]} onClickButton={onClickButton} />);
   
-  const titleElement = screen.getAllByText("Registered Events");
-  expect(titleElement[0]).toBeInTheDocument();
+  const titleElement = screen.getByText("Unregistered Events");
+  expect(titleElement).toBeInTheDocument();
 });
 
-test("renders RegisteredEvents component with event list", () => {
+test("renders UnregisteredEvents component with event list", () => {
   const onClickButton = jest.fn();
-  render(<RegisteredEvents events={mockEvents} onClickButton={onClickButton} />);
+  render(<UnregisteredEvents events={mockEvents} onClickButton={onClickButton} />);
   
   const event1Element = screen.getByText("Event 1");
   const event2Element = screen.getByText("Event 2");
@@ -40,13 +40,13 @@ test("renders RegisteredEvents component with event list", () => {
   expect(event2Element).toBeInTheDocument();
 });
 
-test("calls onClickButton when 'Remove' button is clicked", () => {
+test("calls onClickButton when 'Select' button is clicked", () => {
   const onClickButton = jest.fn();
-  render(<RegisteredEvents events={mockEvents} onClickButton={onClickButton} />);
+  render(<UnregisteredEvents events={mockEvents} onClickButton={onClickButton} />);
   
-  const removeButtons = screen.getAllByText("Remove");
+  const selectButtons = screen.getAllByText("Select");
   
-  fireEvent.click(removeButtons[0]);
+  fireEvent.click(selectButtons[0]);
   
   expect(onClickButton).toHaveBeenCalledTimes(1);
   expect(onClickButton).toHaveBeenCalledWith(1);
