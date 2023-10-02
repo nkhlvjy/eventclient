@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./UI/Card";
 import { EventType } from "../types/EventTypes";
 import Event from "./Event";
-import './RegisteredEvents.css'
+import './RegisteredEvents.css';
 
 
 type RegisteredEventsPropsType = {
@@ -14,6 +14,7 @@ const RegisteredEvents = (props: RegisteredEventsPropsType) => {
   const eventsUI = props.events.map((event) => {
     return (
         <Event
+          key={event.id}
           event={{
             id: event.id,
             name: event.name,

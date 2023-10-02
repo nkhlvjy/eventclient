@@ -13,6 +13,7 @@ const UnregisteredEvents = (props: UnregisteredEventsPropsType) => {
   const eventsUI = props.events.map((event) => {
     return (
       <Event
+        key={event.id}
         event={{
           id: event.id,
           name: event.name,
