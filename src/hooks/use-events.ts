@@ -6,9 +6,12 @@ import {
   updateAllEvents,
   updateRegisteredEvents,
 } from "./../store/events/events.slice";
+import { userSliceSelector } from "../store/user/user.selector";
+import {message} from "antd";
 
 export const useEvents = () => {
   const eventsState = useSelector(eventsSliceSelector);
+  const userSlice = useSelector(userSliceSelector);
   const dispatch = useDispatch();
 
   const unRegisteredEvents = eventsState.allEvents.filter((event) => {
@@ -39,30 +42,40 @@ export const useEvents = () => {
       (event) => event.id === eventId
     )[0];
     const isClashing = registeredEvents.some((registeredEvent) => {
-        const x = registeredEvent.endTime <= event.startTime;
-        const y = event.endTime <= registeredEvent.startTime;
-        return !(x || y);
+      const x = registeredEvent.endTime <= event.startTime;
+      const y = event.endTime <= registeredEvent.startTime;
+      return !(x || y);
     });
-    if (registeredEvents.length >= 3 || isClashing) {
-        return;
-      }
+    if (registeredEvents.length >= 3) {
+      message.error("You cannot register more than 3 events")
+      return;
+    } else if(isClashing) {
+      message.error("You already have an event registered during this time")
+      return;
+    }
     const newRegisteredEvents = eventsState.registeredEvents.concat(
       eventsState.allEvents.filter((event) => {
         return event.id === eventId;
       })
     );
-    EventsService.regsterEventByUserId(1, eventId).then((registration) => {
-      dispatch(updateRegisteredEvents(newRegisteredEvents));
-    });
+    if (userSlice.user?.id) {
+      EventsService.regsterEventByUserId(userSlice.user?.id, eventId).then(
+        (registration) => {
+          dispatch(updateRegisteredEvents(newRegisteredEvents));
+        }
+      );
+    }
   };
 
   const onClickRegisteredEventButton = (eventId: number) => {
     const newRegisteredEvents = eventsState.registeredEvents.filter((event) => {
       return event.id !== eventId;
     });
-    EventsService.deregisterEventByUserId(1, eventId).then(() => {
-      dispatch(updateRegisteredEvents(newRegisteredEvents));
-    });
+    if (userSlice.user?.id) {
+      EventsService.deregisterEventByUserId(1, eventId).then(() => {
+        dispatch(updateRegisteredEvents(newRegisteredEvents));
+      });
+    }
   };
 
   return {

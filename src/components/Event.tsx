@@ -1,7 +1,7 @@
 import React from "react";
 import "./Event.css";
 import Button from "./UI/Button";
-import { EventType } from "./../types/EventTypes";
+import { EventType } from "../types/EventType";
 
 type EventProps = {
   event: EventType;

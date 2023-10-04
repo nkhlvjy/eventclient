@@ -5,8 +5,8 @@
     border: 2px #a29ebc solid;
     border-radius: 6px;
     margin: 2rem;
-    width: 17vw;
-    height: 22vh;
+    width: fit-content;
+    height: fit-content;
 }
 
 .event:hover {
@@ -15,7 +15,9 @@
 
 .event-category-initial {
     font-size: xx-large;
-    padding: 1rem;
+    padding-left: 1.5rem;
+    padding-top: 3rem;
+    text-align: center;
 }
 
 .event-detail {

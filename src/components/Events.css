@@ -1,4 +1,10 @@
 .events {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .events {
+    display: block;
+  }
 }

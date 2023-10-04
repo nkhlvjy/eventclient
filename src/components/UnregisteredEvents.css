@@ -1,15 +1,22 @@
 .unregistered-events-list {
-    display: flex;
-    width: 43vw;
-    overflow: auto;
-    height: 75vh;
-    flex-wrap: wrap;
+  display: flex;
+  width: 43vw;
+  overflow: auto;
+  height: 75vh;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .unregistered-events-list {
+    width: auto;
+    height: auto;
+  }
 }
 
 .unregistered-events-title {
-    text-align: center;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: x-large;
-    margin: 1rem
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: x-large;
+  margin: 1rem;
 }

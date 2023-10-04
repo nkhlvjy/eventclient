@@ -5,7 +5,7 @@ import {
   getRegsiteredEventsByUserIdApi,
   registerEventByUserIdApi,
 } from "../api/EventsSvcClient";
-import { EventType } from "../types/EventTypes";
+import { EventType } from "../types/EventType";
 import { RegistrationType } from "../types/RegistrationType";
 
 export const getAllEvents = async (): Promise<EventType[]> => {

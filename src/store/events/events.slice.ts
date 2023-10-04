@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import { EventType } from '../../types/EventTypes'
+import { EventType } from '../../types/EventType'
 
 export type EventsSliceType = {
     allEvents: EventType[];

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const ExpertsClient = axios.create({
+export const EventsClient = axios.create({
 	baseURL: "http://localhost",
 });
 
@@ -28,7 +28,7 @@ export type EventRegistrationResponseType = {
 
 export const getAllEventsApi = async (): Promise<EventResponseType[] | Error> => {
 	try {
-		const resp = await ExpertsClient.get<EventResponseType[]>(
+		const resp = await EventsClient.get<EventResponseType[]>(
 			'/api/v1/events'
 		);
 		return resp.data;
@@ -39,7 +39,7 @@ export const getAllEventsApi = async (): Promise<EventResponseType[] | Error> =>
 
 export const getRegsiteredEventsByUserIdApi = async (userId: number): Promise<EventResponseType[] | Error> => {
 	try {
-		const resp = await ExpertsClient.get<EventResponseType[]>(
+		const resp = await EventsClient.get<EventResponseType[]>(
 			`/api/v1/registered-events/${userId}`
 		);
 		return resp.data;
@@ -50,7 +50,7 @@ export const getRegsiteredEventsByUserIdApi = async (userId: number): Promise<Ev
 
 export const registerEventByUserIdApi = async (request: EventRegistrationRequestType): Promise<EventRegistrationResponseType | Error> => {
 	try {
-		const resp = await ExpertsClient.post<EventRegistrationResponseType>(
+		const resp = await EventsClient.post<EventRegistrationResponseType>(
 			'/api/v1/registration',
             request
 		);
@@ -62,7 +62,7 @@ export const registerEventByUserIdApi = async (request: EventRegistrationRequest
 
 export const deregisterEventByUserIdApi = async (request: EventRegistrationRequestType): Promise<void | Error> => {
 	try {
-		await ExpertsClient.post<EventRegistrationResponseType>(
+		await EventsClient.post<EventRegistrationResponseType>(
 			'/api/v1/deregistration',
             request
 		);

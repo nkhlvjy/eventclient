@@ -5,8 +5,11 @@ import RegisteredEvents from "./RegisteredEvents";
 import UnregisteredEvents from "./UnregisteredEvents";
 import "./Events.css";
 import { useEvents } from "../hooks/use-events";
+import { useSelector} from "react-redux"
+import { userSliceSelector } from "../store/user/user.selector";
 
 const Events = () => {
+  const userSlice = useSelector(userSliceSelector);
   const {
     getAllEvents,
     getRegsteredEventsByUserId,
@@ -17,11 +20,13 @@ const Events = () => {
   } = useEvents();
 
   useEffect(() => {
-    getAllEvents();
-    getRegsteredEventsByUserId(1);
-  }, [getAllEvents, getRegsteredEventsByUserId]);
+    if(userSlice.user && userSlice.user.id) {
+      getAllEvents();
+      getRegsteredEventsByUserId(userSlice.user?.id);
+    }
+  }, [getAllEvents, getRegsteredEventsByUserId, userSlice.user]);
 
-  return (
+  return userSlice.user && userSlice.user.id ? (
     <>
       <Header />
       <div className="events">
@@ -36,7 +41,9 @@ const Events = () => {
       </div>
       <Footer />
     </>
-  );
+  ) : (<div>
+    Please login <a href="/">here</a>
+  </div>);
 };
 
 export default Events;

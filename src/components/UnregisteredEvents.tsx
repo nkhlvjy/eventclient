@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./UI/Card";
-import { EventType } from "../types/EventTypes";
+import { EventType } from "../types/EventType";
 import Event from "./Event";
 import "./UnregisteredEvents.css";
 
