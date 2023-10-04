@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Event from "../../src/components/Event";
-import { EventType } from "../../src/types/EventTypes";
+import { EventType } from "../../src/types/EventType";
 import '@testing-library/jest-dom';
 
 const mockEvent: EventType = {
@@ -20,7 +20,7 @@ test("renders Event component with 'Select' button when not registered", () => {
 
   expect(selectButton).toBeInTheDocument();
   
-  fireEvent.click(selectButton); // Simulate a button click
+  fireEvent.click(selectButton);
   expect(onClickButton).toHaveBeenCalledTimes(1);
 });
 
@@ -34,7 +34,7 @@ test("renders Event component when registered", () => {
   expect(eventElement).toBeInTheDocument();
   expect(removeButton).toBeInTheDocument();
   
-  fireEvent.click(removeButton); // Simulate a button click
+  fireEvent.click(removeButton);
   expect(onClickButton).toHaveBeenCalledTimes(1);
 });
 
@@ -44,6 +44,6 @@ test("renders Event component with 'Remove' button when registered", () => {
   
   const removeButton = screen.getByText("Remove");
   
-  fireEvent.click(removeButton); // Simulate a button click
+  fireEvent.click(removeButton);
   expect(onClickButton).toHaveBeenCalledTimes(1);
 });

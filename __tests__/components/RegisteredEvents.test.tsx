@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import RegisteredEvents from "../../src/components/RegisteredEvents";
-import { EventType } from "../../src/types/EventTypes";
+import { EventType } from "../../src/types/EventType";
 import '@testing-library/jest-dom';
 
 const mockEvents: EventType[] = [

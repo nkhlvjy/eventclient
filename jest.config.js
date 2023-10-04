@@ -4,5 +4,4 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy'
   }
-  // Other Jest configuration options...
 };

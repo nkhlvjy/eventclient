@@ -20,7 +20,6 @@ export const getAllEvents = async (): Promise<EventType[]> => {
       category: eventResp.event_category,
       startTime: eventResp.start_time,
       endTime: eventResp.end_time,
-      // map other properties as needed
     };
     return event;
   });
