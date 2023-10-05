@@ -51,7 +51,7 @@ export const getRegsiteredEventsByUserIdApi = async (userId: number): Promise<Ev
 export const registerEventByUserIdApi = async (request: EventRegistrationRequestType): Promise<EventRegistrationResponseType | Error> => {
 	try {
 		const resp = await EventsClient.post<EventRegistrationResponseType>(
-			'/api/v1/registration',
+			'/api/v1/registrations',
             request
 		);
 		return resp.data;
@@ -63,7 +63,7 @@ export const registerEventByUserIdApi = async (request: EventRegistrationRequest
 export const deregisterEventByUserIdApi = async (request: EventRegistrationRequestType): Promise<void | Error> => {
 	try {
 		await EventsClient.post<EventRegistrationResponseType>(
-			'/api/v1/deregistration',
+			'/api/v1/deregistrations',
             request
 		);
 	} catch (error) {
